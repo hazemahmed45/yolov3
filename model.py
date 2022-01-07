@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from config import CONFIG
+from config import ARCHI
 
 class CNNBlock(nn.Module):
     def __init__(self,in_c,out_c,bn_act=True,**kwargs) :
@@ -100,7 +100,7 @@ class YOLOv3(nn.Module):
 if __name__ == '__main__':
     num_classes=20
     IMG_SIZE=416
-    model=YOLOv3(config=CONFIG,num_classes=num_classes)
+    model=YOLOv3(config=ARCHI,num_classes=num_classes)
     x=torch.randn((2,3,IMG_SIZE,IMG_SIZE))
     out=model(x)
     print(out[0].shape)
