@@ -3,8 +3,7 @@ import cv2
 import torch
 
 from albumentations.pytorch import ToTensorV2
-from utils import seed_everything
-
+# from utils import seed_everything
 
 ###########################
 #Tuple -> (out_channels,kernel_size,stride)
@@ -43,7 +42,7 @@ ARCHI=[
     "S",
 ]
 
-DATASET = 'PASCAL_VOC'
+DATASET = 'PascalVoc'
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # seed_everything()  # If you want deterministic behavior
 NUM_WORKERS = 4
@@ -58,8 +57,8 @@ MAP_IOU_THRESH = 0.5
 NMS_IOU_THRESH = 0.45
 S = [IMAGE_SIZE // 32, IMAGE_SIZE // 16, IMAGE_SIZE // 8]
 PIN_MEMORY = True
-LOAD_MODEL = True
-SAVE_MODEL = True
+LOAD_MODEL = False
+SAVE_MODEL = False
 CHECKPOINT_FILE = "checkpoint.pth.tar"
 IMG_DIR = DATASET + "/images/"
 LABEL_DIR = DATASET + "/labels/"
